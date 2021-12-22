@@ -18,9 +18,9 @@ TODO: Update this to MIT Press version once published.
 
 The data is located in [`fictionalgeoqa.jsonl`](fictionalgeoqa.jsonl).
 
-Each line contains one example: a paragraph context (the JSON field "key"), a single question (the JSON key "question"), and an answer (the JSON key "answer"). For examples that have multiple answers, the answer key will be a comma-separated list of the answers. For examples with no answers, the answer key is an empty string.
+Each line contains one example: a paragraph context (the JSON field `theory`), a single question (the JSON field `question`), and an answer (the JSON field `answer`). For examples that have multiple answers, the answer field will be a comma-separated list of the answers. For examples with no answers, the answer field is an empty string.
 
-To accommodate language model-based QA systems that may overgenerate text, each example has an "answer_templates" key, which is a list of regular expressions. A predicted answer is considered correct either if it matches the true answer, or it matches any regular expression answer_template, where "{0}" is replaced with the true answer. Case is ignored when judging correctness. For example, consider [line 11](fictionalgeoqa.jsonl#L11):
+To accommodate language model-based QA systems that may overgenerate text, each example has an `answer_templates` field, which is a list of regular expressions. A predicted answer is considered correct either if it matches the true answer, or it matches any regular expression answer_template, where "{0}" is replaced with the true answer. Case is ignored when judging correctness. For example, consider [line 11](fictionalgeoqa.jsonl#L11):
 ```json
 "question":"What are the major rivers in Wulstershire?","answer":"River Giffeleney, River Wulstershire" ...
 "answer_templates":["{0} is a river in Wulstershire","{0} is a major river( in Wulstershire)?","{0} is major"]
@@ -31,13 +31,13 @@ All true answers must be predicted to be considered correct; no more, no less. *
 
 The Python script [`check_fictionalgeoqa_answers.py`](check_fictionalgeoqa_answers.py) performs this evaluation automatically (see [below](#evaluation)).
 
-The "data_subsets" key is a list of flags that indicate the types of reasoning that are required to correctly answer the question. The possible flags are:
+The `data_subsets` field is a list of flags that indicate the types of reasoning that are required to correctly answer the question. The possible flags are:
  - `superlative`: Examples that require reasoning over superlatives, i.e. "longest river."
  - `subjective_concept_definition`: Examples with definitions of "*subjective*" concepts, i.e. ``Every river longer than 500 km is **major**.''
  - `objective_concept_definition`: Examples with definitions of "*objective*" concepts, i.e. the **population** of a location is the number of people living there.
  - `lexical_ambiguity`: Examples with lexical ambiguity, i.e. "has" means different things in "a state has a city named" vs "a state has an area of..." The phrase "largest state" could either mean "state with the largest area" or "state with the largest population."
  - `negation`: Examples that require reasoning with classical negation (negation-as-failure is insufficient).
- - `large_context`: Examples where there are at least 100 sentences in the context (JSON key "theory").
+ - `large_context`: Examples where there are at least 100 sentences in the context (JSON field `theory`).
  - `arithmetic`: Examples that require simple arithmetic.
  - `counting`: Examples that require counting.
 
