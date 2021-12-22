@@ -6,7 +6,7 @@ TODO: Update this to MIT Press version once published.
 ```bibtex
 @article{SaparovMitchell2021,
   author = {Abulhair Saparov and Tom M. Mitchell},
-  title = {Towards General Natural Language Understanding with Probabilistic Wo>
+  title = {Towards General Natural Language Understanding with Probabilistic Worldbuilding},
   journal = {Transactions of the Association for Computational Linguistics (TACL)},
   pages = {(accepted)},
   year = {2021}
