@@ -2,14 +2,18 @@
 
 A question-answering dataset containing paragraphs and questions about fictional geography, designed to test reasoning ability. If you use this data or code in your research, please cite:
 
-TODO: Update this to MIT Press version once published.
 ```bibtex
-@article{SaparovMitchell2021,
+@article{10.1162/tacl_a_00463,
   author = {Abulhair Saparov and Tom M. Mitchell},
   title = {Towards General Natural Language Understanding with Probabilistic Worldbuilding},
-  journal = {Transactions of the Association for Computational Linguistics (TACL)},
-  pages = {(accepted)},
-  year = {2021}
+  journal = {Transactions of the Association for Computational Linguistics},
+  volume = {10},
+  pages = {325-342},
+  year = {2022},
+  month = {04},
+  issn = {2307-387X},
+  doi = {10.1162/tacl_a_00463},
+  url = {https://doi.org/10.1162/tacl\_a\_00463}
 }
 ```
 
